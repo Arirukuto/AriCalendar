@@ -1,17 +1,20 @@
+#calender-section {
+  color: black;
+}
 #calender-section .card-header {
-  background-color: #f6e2e3 !important;
+  background-color: #f6e2e3;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 #calender-section .card-header button#previous {
-  border-color: #bf1878;
-  color: #bf1878;
+  border-color: #bd0074;
+  color: #bd0074;
   background-color: transparent;
 }
 #calender-section .card-header button#previous:hover {
-  background-color: #bf1878;
+  background-color: #bd0074;
   color: white;
 }
 #calender-section .card-header #monthAndYear {
@@ -19,16 +22,20 @@
   font-size: 1.75rem;
 }
 #calender-section .card-header button#next {
-  border-color: #bf1878;
-  color: #bf1878;
+  border-color: #bd0074;
+  color: #bd0074;
 }
 #calender-section .card-header button#next:hover {
-  background-color: #bf1878;
+  background-color: #bd0074;
   color: white;
+}
+#calender-section .card-body {
+  padding: 0;
+  background-color: #f6e2e3;
 }
 #calender-section .card-body #calendar thead {
   text-align: center;
-  background-color: #28a745;
+  background-color: #00fa3880;
 }
 #calender-section .card-body .cell {
   cursor: pointer;
@@ -36,17 +43,18 @@
   background-color: white;
 }
 #calender-section .card-body .cell:hover {
-  background-color: #bf1878;
+  background-color: #bd0074;
   color: white;
 }
 #calender-section .card-body .cell.empty {
-  background-color: #6c757d !important;
+  background-color: #c7cdd3 !important;
+  cursor: not-allowed;
 }
 #calender-section .card-body .cell.currentday {
-  border: 2px solid #bf1878 !important;
+  border: 2px solid #bd0074 !important;
 }
 #calender-section .card-footer {
-  background-color: #f6e2e3 !important;
+  background-color: #f6e2e3;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
