@@ -26,19 +26,11 @@
 
             <div class="card-body">
                 <table class="table table-bordered table-responsive-sm" id="calendar">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
+                    <thead id="calendar-head">
+                        <!-- weekdays -->
                     </thead>
                     <tbody id="calendar-body">
-                        <!-- Kalender Zellen -->
+                        <!-- Days -->
                     </tbody>
                 </table>
             </div>
@@ -48,10 +40,6 @@
                     <select class="form-control col-sm-4" name="month" id="select-month" onchange="jump()">
           
                     </select>
-                
-                
-                
-                
                     <label for="year" style="display:none;"></label>
                     <select class="form-control col-sm-4" name="year" id="select-year" onchange="jump()"></select>
             </div>
