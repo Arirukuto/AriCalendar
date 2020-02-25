@@ -1,0 +1,55 @@
+#calender-section .card-header {
+  background-color: #f6e2e3 !important;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#calender-section .card-header button#previous {
+  border-color: #bf1878;
+  color: #bf1878;
+  background-color: transparent;
+}
+#calender-section .card-header button#previous:hover {
+  background-color: #bf1878;
+  color: white;
+}
+#calender-section .card-header #monthAndYear {
+  display: block;
+  font-size: 1.75rem;
+}
+#calender-section .card-header button#next {
+  border-color: #bf1878;
+  color: #bf1878;
+}
+#calender-section .card-header button#next:hover {
+  background-color: #bf1878;
+  color: white;
+}
+#calender-section .card-body #calendar thead {
+  text-align: center;
+  background-color: #28a745;
+}
+#calender-section .card-body .cell {
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+}
+#calender-section .card-body .cell:hover {
+  background-color: #bf1878;
+  color: white;
+}
+#calender-section .card-body .cell.empty {
+  background-color: #6c757d !important;
+}
+#calender-section .card-body .cell.currentday {
+  border: 2px solid #bf1878 !important;
+}
+#calender-section .card-footer {
+  background-color: #f6e2e3 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=calendar.css.map */

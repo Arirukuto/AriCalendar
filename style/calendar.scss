@@ -1,0 +1,60 @@
+#calender-section
+{   
+    //? ============= Calendar Settings ============= */
+    $card_header_bgc: #f6e2e3 !important;
+    $cell_bgc: white;
+    $cell_bgc_hover: #bf1878;
+    $cell_border_color: #bf1878;
+
+    //* ============= card header ============= */
+    .card-header {
+        background-color: $card_header_bgc;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        button#previous {
+            border-color: $cell_border_color;
+            color: $cell_border_color;
+            background-color: transparent;
+            &:hover {background-color: $cell_border_color; color: white;}
+        }
+        #monthAndYear {
+            display: block;
+            font-size: 1.75rem;
+        }
+        button#next {
+            border-color: $cell_border_color;
+            color: $cell_border_color;
+            &:hover {background-color: $cell_border_color; color: white;}
+        }
+    }   
+
+    //* ============= card body ============= */
+    .card-body {
+        #calendar thead {
+        text-align: center;
+        background-color: #28a745;
+        }
+
+        .cell {
+            cursor: pointer;
+            text-align: center;
+            background-color: $cell_bgc;
+            &:hover {background-color: $cell_bgc_hover;color: white;}
+            &.empty {background-color: #6c757d !important;}
+            &.currentday {border: 2px solid $cell_border_color !important;}
+        }
+    }
+
+    //* ============= card footer ============= */
+    .card-footer {
+        background-color: $card_header_bgc;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+
