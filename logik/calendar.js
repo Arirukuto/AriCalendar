@@ -3,13 +3,13 @@ let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 let selectYear = document.getElementById("select-year");
 let selectMonth = document.getElementById("select-month");
-
+let monthAndYear = document.getElementById("monthAndYear");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let weekdays = ["Sun", "Mon", "Tue","Wed", "Thu", "Fri", "Sat"];
+
 let startyear = currentYear;
 let endyear = currentYear + 5;
-
-let monthAndYear = document.getElementById("monthAndYear");
 
 
 showCalendar(currentMonth, currentYear);
@@ -32,56 +32,76 @@ function jump () {
     showCalendar(currentMonth, currentYear);
 }
 
-function showCalendar (month, year) {
+function createTablehead() {
+    // create tablehead
+    let tablehead = document.getElementById("calendar-head"); // head of the calender
+    tablehead.innerHTML = "";
+    let tr = document.createElement("tr");
+    tablehead.appendChild(tr);
+    for(var i=0; i <= weekdays.length-1; i++) {
+        let th = document.createElement("th");
+        th.value = weekdays[i];
+        th.innerHTML = weekdays[i];
+        tr.appendChild(th);
+    }
+}
 
-    let firstDay = (new Date(year, month)).getDay();
-    let daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-    let tbl = document.getElementById("calendar-body"); // body of the calendar
-
+function createTableBody(firstDay, daysInMonth, month,year) {
+    // create tablebody
+    let tablebody = document.getElementById("calendar-body"); // body of the calendar
     // clearing all previous cells
-    tbl.innerHTML = "";
-
-    // filing data about month and in the page via DOM.
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectMonth.value = month;
-
+    tablebody.innerHTML = "";
     // creating all cells
     let date = 1;
     for (let i = 0; i < 6; i++) {
         // creates a table row
         let row = document.createElement("tr");
-
         //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
+            let cell = document.createElement("td");
+
+            // datecounter bigger than count of days in moth => break out the loop
+            if (date > daysInMonth) { break; }
+
+            // if the counter i gleich 0 and the counter j is greater than the number of the firstday in m
             if (i === 0 && j < firstDay) {
-                let cell = document.createElement("td");
                 cell.classList.add("cell");
                 cell.classList.add("empty");
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
+                continue;
             }
-            else if (date > daysInMonth) {
-                break;
-            }
+            cell.classList.add("cell");
+            let cellText = document.createTextNode(date);
 
-            else {
-                let cell = document.createElement("td");
-                cell.classList.add("cell");
-                let cellText = document.createTextNode(date);
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.classList.add("currentday");
-                } // color today's date
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-                date++;
-            }
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("currentday"); // color today's date
+            } 
 
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            date++;
         }
-
-        tbl.appendChild(row); // appending each row into calendar body.
+        tablebody.appendChild(row); // appending each row into calendar body.
     }
+}
+
+function showCalendar (month, year) {
+    console.log("year => " + year);
+    console.log("month => " + month);
+    console.log("new Date(year, month) => " + new Date(year, month));
+    let firstDay = new Date(year, month).getDay();
+    console.log("firstDay => " + firstDay);
+    let daysInMonth = 32 - new Date(year, month, 32).getDate();
+    console.log("daysInMonth => " + daysInMonth);
+
+    // filing data about month and in the page via DOM.
+    monthAndYear.innerHTML = months[month] + " " + year;
+    selectMonth.value = month;
+
+    createTablehead();
+    createTableBody(firstDay, daysInMonth, month, year);
 
 
     // fill the year selectbox
