@@ -114,7 +114,7 @@ function showCalendar (month, year) {
     }
 
     // fill the mothh selectbox
-    for (var i = 0; i <= months.length; i++) {
+    for (var i = 0; i <= months.length - 1; i++) {
         let option = document.createElement("option");
         option.value = months[i];
         option.innerHTML = months[i];
