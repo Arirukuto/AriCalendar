@@ -63,9 +63,11 @@
   flex-direction: row;
   justify-content: space-between;
 }
+#calender-section .card-footer span {
+  font-size: 20px !important;
+}
 #calender-section .card-footer #choosen_date {
   color: #bd0074 !important;
-  font-size: 20px !important;
 }
 
 /*# sourceMappingURL=calendar.css.map */
