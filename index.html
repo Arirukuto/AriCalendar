@@ -15,7 +15,7 @@
 <body>
     <!-- ============================== Calendar-Widget ==============================  -->
     <section id="calender-section">
-        <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+        <div class="container col col-sm col-md col-lg mt-5">
             <h3 style="text-align: center;">Lieferdatum auswählen</h3>
             <div class="card">
                 <div class="card-header">
@@ -24,7 +24,7 @@
                     <button class="btn btn-outline-primary" id="next" onclick="next()"> >> </button>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-responsive-sm" id="calendar">
+                    <table class="table table-bordered" id="calendar">
                         <thead id="calendar-head">
                             <!-- thead weekdays/cells -->
                         </thead>
@@ -41,6 +41,7 @@
                     <span>Ihr Lieferdatum:</span>
                     <span id="choosen_date"  > Kein Datum ausgewählt </span>
                     <input type="text" disabled class="d-none">
+                    <br>
                     <button type="button" disabled class="btn"> Bestätigen </button>
                     <input type="text" id="valide-date" disabled class="d-none">
                 </div>
