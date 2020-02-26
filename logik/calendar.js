@@ -5,7 +5,7 @@ let selectYear = document.getElementById("select-year");
 let selectMonth = document.getElementById("select-month");
 let monthAndYear = document.getElementById("monthAndYear");
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "October", "November", "Dezember"];
 //let weekdays = ["Su", "Mo", "Tu","We", "Th", "Fr", "Sa"];
 let weekdays = ["So", "Mo", "Di","Mi", "Do", "Fr", "Sa"];
 
@@ -104,21 +104,21 @@ function showCalendar (month, year) {
     createTablehead();
     createTableBody(firstDay, daysInMonth, month, year);
 
-
-    // fill the year selectbox
-    for (var i = startyear; i <= endyear; i++) {
-        let option = document.createElement("option");
-        option.value = i;
-        option.innerHTML = i;
-        selectYear.appendChild(option);
-    }
-
-    // fill the mothh selectbox
-    for (var i = 0; i <= months.length - 1; i++) {
-        let option = document.createElement("option");
-        option.value = months[i];
-        option.innerHTML = months[i];
-        selectMonth.appendChild(option);
-    }
-
 }
+/* Bug detected
+// fill the year selectbox
+for (var i = startyear; i <= endyear; i++) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.innerHTML = i;
+    selectYear.appendChild(option);
+}
+
+// fill the mothh selectbox
+for (var i = 0; i <= months.length - 1; i++) {
+    let option = document.createElement("option");
+    option.value = months[i];
+    option.innerHTML = months[i];
+    selectMonth.appendChild(option);
+}
+*/
