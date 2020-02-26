@@ -8,10 +8,30 @@ let monthAndYear = document.getElementById("monthAndYear");
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "October", "November", "Dezember"];
 //let weekdays = ["Su", "Mo", "Tu","We", "Th", "Fr", "Sa"];
 let weekdays = ["So", "Mo", "Di","Mi", "Do", "Fr", "Sa"];
+let allcells = [];
 
 let startyear = currentYear;
 let endyear = currentYear + 5;
 
+ /* Bug detected
+    // filing data about month and in the page via DOM.
+    selectMonth.value = month;
+
+    // fill the year selectbox
+    for (var i = startyear; i <= endyear; i++) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.innerHTML = i;
+    selectYear.appendChild(option);
+    }
+
+    // fill the mothh selectbox
+    for (var i = 0; i <= months.length - 1; i++) {
+    let option = document.createElement("option");
+    option.value = months[i];
+    option.innerHTML = months[i];
+    selectMonth.appendChild(option);
+*/
 
 showCalendar(currentMonth, currentYear);
 
@@ -60,7 +80,7 @@ function createTableBody(firstDay, daysInMonth, month,year) {
         //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
             let cell = document.createElement("td");
-
+    
             // datecounter bigger than count of days in moth => break out the loop
             if (date > daysInMonth) { break; }
 
@@ -81,11 +101,14 @@ function createTableBody(firstDay, daysInMonth, month,year) {
             } 
 
             cell.appendChild(cellText);
+            allcells.push(cell);
             row.appendChild(cell);
             date++;
         }
         tablebody.appendChild(row); // appending each row into calendar body.
     }
+    console.log(allcells);
+    console.log(allcells.length);
 }
 
 function showCalendar (month, year) {
@@ -96,31 +119,40 @@ function showCalendar (month, year) {
     console.log("firstDay => " + firstDay);
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
     console.log("daysInMonth => " + daysInMonth);
-
-    
-
     createTablehead();
     createTableBody(firstDay, daysInMonth, month, year);
+    monthAndYear.innerHTML = months[month] + " " + year;
 
+    $(document).ready(function () {
+        let choosen_date_span = document.getElementById("choosen_date");
+        let choosen_cell = "";
+        let last_choosen_cell = "";
+        let counter = 0;
+        $(".cell").click(function () {
+            choosen_cell = this;
+            choosen_cell.classList.add("selected")
+            if (counter > 0) {
+                for (let index = 0; index < allcells.length; index++) {
+                    if (allcells[index].classList.contains("empty")) { continue; }
+                    allcells[index].classList.remove("selected");
+                }
+                counter = 0;
+            } else {
+                counter++;
+            }
+            console.log(counter);
+        })
+    });
 }
-/* Bug detected
-// filing data about month and in the page via DOM.
-monthAndYear.innerHTML = months[month] + " " + year;
-selectMonth.value = month;
 
-// fill the year selectbox
-for (var i = startyear; i <= endyear; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.innerHTML = i;
-    selectYear.appendChild(option);
-}
 
-// fill the mothh selectbox
-for (var i = 0; i <= months.length - 1; i++) {
-    let option = document.createElement("option");
-    option.value = months[i];
-    option.innerHTML = months[i];
-    selectMonth.appendChild(option);
-}
+
+/*
+last_choosen_cell = this;
+console.log(last_choosen_cell);
+last_choosen_cell.classList.toogle("selected");
+this.classList.add("selected");
+let choosen_date = this.innerHTML;
+choosen_date_span.innerHTML = choosen_date + "." + currentMonth + "." + currentYear;
 */
+
