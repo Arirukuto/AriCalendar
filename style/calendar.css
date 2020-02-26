@@ -63,8 +63,9 @@
 #calender-section .card-footer {
   background-color: #f6e2e3;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
 }
 #calender-section .card-footer span {
   font-size: 20px !important;

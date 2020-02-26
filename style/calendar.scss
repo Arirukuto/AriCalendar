@@ -60,8 +60,9 @@
     .card-footer {
         background-color: $color_primary;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
         span {font-size: 20px !important;}
         button {background-color: $akzent1; color:white;}
         #choosen_date {
