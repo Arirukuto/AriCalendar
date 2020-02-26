@@ -63,7 +63,7 @@
         flex-direction: row;
         justify-content: space-between;
         span {font-size: 20px !important;}
-        button {background-color: #00fa3880;}
+        button {background-color: $akzent1; color:white;}
         #choosen_date {
             color: $akzent1 !important;
         }

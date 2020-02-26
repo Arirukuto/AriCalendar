@@ -70,7 +70,8 @@
   font-size: 20px !important;
 }
 #calender-section .card-footer button {
-  background-color: #00fa3880;
+  background-color: #bd0074;
+  color: white;
 }
 #calender-section .card-footer #choosen_date {
   color: #bd0074 !important;
