@@ -123,29 +123,35 @@ function showCalendar (month, year) {
     createTableBody(firstDay, daysInMonth, month, year);
     monthAndYear.innerHTML = months[month] + " " + year;
 
-    $(document).ready(function () {
-        let choosen_date_span = document.getElementById("choosen_date");
-        let choosen_cell = "";
-        let last_choosen_cell = "";
-        let counter = 0;
-        $(".cell").click(function () {
-            choosen_cell = this;
-            choosen_cell.classList.add("selected")
-            if (counter > 0) {
-                for (let index = 0; index < allcells.length; index++) {
-                    if (allcells[index].classList.contains("empty")) { continue; }
-                    allcells[index].classList.remove("selected");
-                }
-                counter = 0;
-            } else {
-                counter++;
-            }
-            console.log(counter);
-        })
-    });
 }
 
+// event calls
+$(document).ready(function () {
+    let choosen_date_span = document.getElementById("choosen_date");
+    let choosen_cell = "";
+    let counter = 0;
+    $(".cell").click(function () {
+        choosen_date_span.innerHTML = ""; // clear the displayed data
+        choosen_date = this.innerHTML;
+        if (choosen_date < 10) { choosen_date = "0" + choosen_date;}
+            
+        choosen_date_span.innerHTML = choosen_date + " " + months[currentMonth] + " " + currentYear;
 
+        choosen_cell = this;
+        choosen_cell.classList.add("selected")
+        if (counter > 0) {
+            currentMonth = currentMonth;
+            for (let index = 0; index < allcells.length; index++) {
+                if (allcells[index].classList.contains("empty")) { continue; }
+                allcells[index].classList.remove("selected");
+            }
+            counter = 0;
+        } else {
+            counter++;
+        }
+        console.log(counter);
+    })
+});
 
 /*
 last_choosen_cell = this;
