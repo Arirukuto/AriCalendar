@@ -1,6 +1,9 @@
 #calender-section {
   color: black;
 }
+#calender-section button {
+  border-radius: unset;
+}
 #calender-section .card-header {
   background-color: #f6e2e3;
   text-align: center;
@@ -65,6 +68,9 @@
 }
 #calender-section .card-footer span {
   font-size: 20px !important;
+}
+#calender-section .card-footer button {
+  background-color: #00fa3880;
 }
 #calender-section .card-footer #choosen_date {
   color: #bd0074 !important;

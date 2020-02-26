@@ -7,6 +7,7 @@
 #calender-section
 {   
     color: $font_color;
+    button {border-radius: unset;}
 
     //* ============= card header ============= */
     .card-header {
@@ -62,6 +63,7 @@
         flex-direction: row;
         justify-content: space-between;
         span {font-size: 20px !important;}
+        button {background-color: #00fa3880;}
         #choosen_date {
             color: $akzent1 !important;
         }
