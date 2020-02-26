@@ -13,75 +13,46 @@
 
 </head>
 <body>
-
-<section id="calender-section">
-    <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
-        <div class="card">
-
-            <div class="card-header">
-                <button class="btn" id="previous" onclick="previous()"> << </button>
-                <span id="monthAndYear"></span>
-                <button class="btn btn-outline-primary" id="next" onclick="next()"> >> </button>
-            </div>
-
-            <div class="card-body">
-                <table class="table table-bordered table-responsive-sm" id="calendar">
-                    <thead id="calendar-head">
-                        <!-- weekdays -->
-                    </thead>
-                    <tbody id="calendar-body">
-                        <!-- Days -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card-footer">
+    <!-- ============================== Calendar-Widget ==============================  -->
+    
+    <section id="calender-section">
+        <div class="container col mt-5">
+            <h3 style="text-align: center;">Lieferdatum auswählen</h3>
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn" id="previous" onclick="previous()"> << </button>
+                    <span id="monthAndYear"></span>
+                    <button class="btn btn-outline-primary" id="next" onclick="next()"> >> </button>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-responsive-sm" id="calendar">
+                        <thead id="calendar-head">
+                            <!-- thead weekdays/cells -->
+                        </thead>
+                        <tbody id="calendar-body">
+                            <!-- tbody Days/cells -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
                     <label class="lead mr-2 ml-2" for="month" style="display:none;"></label>
-                    <select class="form-control col-sm-4" name="month" id="select-month" onchange="jump()">
-          
-                    </select>
+                    <select class="form-control col-sm-4" name="month" id="select-month" onchange="jump()"></select>
                     <label for="year" style="display:none;"></label>
                     <select class="form-control col-sm-4" name="year" id="select-year" onchange="jump()"></select>
+                </div>
             </div>
-
         </div>
-    </div>
-
-</section>
-
-
+    </section>
+    <!-- =============================================================================  -->
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<button name="jump" onclick="jump()">Go</button>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="logik//calendar.js"></script>
-
-<!-- Optional JavaScript for bootstrap -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" ntegrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"     crossorigin="anonymous"></script>
 
 
 </body>

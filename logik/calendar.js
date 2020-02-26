@@ -6,7 +6,8 @@ let selectMonth = document.getElementById("select-month");
 let monthAndYear = document.getElementById("monthAndYear");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-let weekdays = ["Sun", "Mon", "Tue","Wed", "Thu", "Fri", "Sat"];
+//let weekdays = ["Su", "Mo", "Tu","We", "Th", "Fr", "Sa"];
+let weekdays = ["So", "Mo", "Di","Mi", "Do", "Fr", "Sa"];
 
 let startyear = currentYear;
 let endyear = currentYear + 5;

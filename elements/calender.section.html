@@ -1,0 +1,31 @@
+<section id="calender-section">
+    <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+
+        <div class="card">
+            <div class="card-header">
+                <button class="btn" id="previous" onclick="previous()"> << </button>
+                <span id="monthAndYear"></span>
+                <button class="btn btn-outline-primary" id="next" onclick="next()"> >> </button>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-responsive-sm" id="calendar">
+                    <thead id="calendar-head">
+                        <!-- weekdays -->
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Days -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                    <label class="lead mr-2 ml-2" for="month" style="display:none;"></label>
+                    <select class="form-control col-sm-4" name="month" id="select-month" onchange="jump()">
+          
+                    </select>
+                    <label for="year" style="display:none;"></label>
+                    <select class="form-control col-sm-4" name="year" id="select-year" onchange="jump()"></select>
+            </div>
+        </div>
+
+    </div>
+</section>
