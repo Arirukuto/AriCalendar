@@ -34,16 +34,17 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    <!--
-                        <label class="lead mr-2 ml-2" for="month" style="display:none;"></label>
+                    <!-- <label class="lead mr-2 ml-2" for="month" style="display:none;"></label>
                         <select class="form-control col-sm-4" name="month" id="select-month" onchange="jump()"></select>
                         <label for="year" style="display:none;"></label>
-                        <select class="form-control col-sm-4" name="year" id="select-year" onchange="jump()"></select>
-                    -->
+                        <select class="form-control col-sm-4" name="year" id="select-year" onchange="jump()"></select> -->
                     <span>Ihr Lieferdatum:</span>
-                    <span id="choosen_date"> Kein Datum gewählt </span>
-                    <button type="button" class="btn btn-success"> Bestätigen </button>
+                    <span id="choosen_date"  > Kein Datum ausgewählt </span>
+                    <input type="text" disabled class="d-none">
+                    <button type="button" disabled class="btn"> Bestätigen </button>
+                    <input type="text" id="valide-date" disabled class="d-none">
                 </div>
+                
             </div>
         </div>
     </section>
