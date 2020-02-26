@@ -97,15 +97,17 @@ function showCalendar (month, year) {
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
     console.log("daysInMonth => " + daysInMonth);
 
-    // filing data about month and in the page via DOM.
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectMonth.value = month;
+    
 
     createTablehead();
     createTableBody(firstDay, daysInMonth, month, year);
 
 }
 /* Bug detected
+// filing data about month and in the page via DOM.
+monthAndYear.innerHTML = months[month] + " " + year;
+selectMonth.value = month;
+
 // fill the year selectbox
 for (var i = startyear; i <= endyear; i++) {
     let option = document.createElement("option");
