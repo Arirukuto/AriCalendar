@@ -123,42 +123,55 @@ function showCalendar (month, year) {
     createTableBody(firstDay, daysInMonth, month, year);
     monthAndYear.innerHTML = months[month] + " " + year;
 
-}
-
-// event calls
-$(document).ready(function () {
+    // event calls
     let choosen_date_span = document.getElementById("choosen_date");
     let choosen_cell = "";
-    let counter = 0;
-    $(".cell").click(function () {
-        choosen_date_span.innerHTML = ""; // clear the displayed data
-        choosen_date = this.innerHTML;
-        if (choosen_date < 10) { choosen_date = "0" + choosen_date;}
-            
-        choosen_date_span.innerHTML = choosen_date + " " + months[currentMonth] + " " + currentYear;
+    $(document).ready(function () {
 
-        choosen_cell = this;
-        choosen_cell.classList.add("selected")
-        if (counter > 0) {
-            currentMonth = currentMonth;
-            for (let index = 0; index < allcells.length; index++) {
-                if (allcells[index].classList.contains("empty")) { continue; }
-                allcells[index].classList.remove("selected");
+        let counter = 0;
+
+        // calendar cell event
+        $(".cell").click(function () {
+            choosen_date_span.innerHTML = ""; // clear the displayed data
+            selected_day = this.innerHTML;
+            $("#choosen_date").next().val(selected_day + "." + currentMonth + "." + currentYear);
+
+            if (selected_day < 10) { selected_day = "0" + selected_day; }
+
+            choosen_date_span.innerHTML = selected_day + " " + months[currentMonth] + " " + currentYear;
+
+            choosen_cell = this;
+            choosen_cell.classList.add("selected")
+            if (counter > 0) {
+                for (let index = 0; index < allcells.length; index++) {
+                    if (allcells[index].classList.contains("empty")) { continue; }
+                    allcells[index].classList.remove("selected");
+                }
+                counter = 0;
+            } else {
+                counter++;
             }
-            counter = 0;
-        } else {
-            counter++;
-        }
-        console.log(counter);
-    })
-});
+            $(".card-footer button").prop('disabled', false);
+        });
+
+        // date confirm button event 
+        // Kein Datum gewählt 
+        $(".card-footer button").click(function () {
+            $("#valide-date").val($("#choosen_date").next().val());
+        });
+
+    });
+
+}
+
+
 
 /*
 last_choosen_cell = this;
 console.log(last_choosen_cell);
 last_choosen_cell.classList.toogle("selected");
 this.classList.add("selected");
-let choosen_date = this.innerHTML;
-choosen_date_span.innerHTML = choosen_date + "." + currentMonth + "." + currentYear;
+let selected_day = this.innerHTML;
+choosen_date_span.innerHTML = selected_day + "." + currentMonth + "." + currentYear;
 */
 
