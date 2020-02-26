@@ -51,6 +51,7 @@
             &:hover {background-color: $akzent1;color: white;}
             &.empty {background-color: $empty_cell !important; cursor:not-allowed ;}
             &.currentday {border: 2px solid $akzent1 !important;}
+            &.selected {background-color: $akzent1; color:white;}
         }
     }
 
@@ -60,6 +61,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        #choosen_date {
+            color: $akzent1 !important;
+            font-size: 20px !important;
+        }
     }
 }
 
