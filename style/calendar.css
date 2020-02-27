@@ -44,7 +44,7 @@
   cursor: pointer;
   text-align: center;
   background-color: white;
-  color: black !important;
+  color: black;
 }
 #calender-section .card-body .cell:hover {
   background-color: #bd0074 !important;
@@ -72,7 +72,7 @@
 }
 #calender-section .card-body .cell.notpossible:hover {
   background-color: #c7cdd3 !important;
-  color: black;
+  color: black !important;
 }
 #calender-section .card-footer {
   background-color: #f6e2e3;

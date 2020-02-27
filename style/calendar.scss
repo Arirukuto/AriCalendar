@@ -49,7 +49,7 @@
             cursor: pointer;
             text-align: center;
             background-color: $color_secondary;
-            color:black !important;
+            color:black;
             &:hover {
                 background-color: $akzent1 !important;
                 color: white; 
@@ -69,7 +69,7 @@
             &.notpossible {
                 background-color: $empty_cell; 
                 cursor:default;
-                &:hover {background-color: $empty_cell !important; color:black;}
+                &:hover {background-color: $empty_cell !important; color:black !important;}
             }
         }
     }
