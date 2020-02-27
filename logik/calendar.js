@@ -80,11 +80,13 @@ function createTableBody(firstDay, daysInMonth, month,year) {
         //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
             let cell = document.createElement("td");
-    
+            cell.classList.add("cell");
+            let cellText = document.createTextNode(date);
+
             // datecounter bigger than count of days in moth => break out the loop
             if (date > daysInMonth) { break; }
 
-            // if the counter i gleich 0 and the counter j is greater than the number of the firstday in m
+            // if the counter i equal 0 and the counter j is greater than the number of the firstday in m
             if (i === 0 && j < firstDay) {
                 cell.classList.add("cell");
                 cell.classList.add("empty");
@@ -93,12 +95,32 @@ function createTableBody(firstDay, daysInMonth, month,year) {
                 row.appendChild(cell);
                 continue;
             }
-            cell.classList.add("cell");
-            let cellText = document.createTextNode(date);
 
+    
+            // mark cells because of weekend
+            if (j === 0 || j === 6) {
+                cell.classList.add("notpossible");
+            }
+            // check if makes not sense to choose this date
+            if (date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("notpossible");
+            }
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("notpossible");
+            }
+            if (date === today.getDate() + 1 && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("notpossible");
+            }
+            if (date === today.getDate() + 2 && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("notpossible");
+            }
+
+            // mark a cell if this the date is today
             if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                 cell.classList.add("currentday"); // color today's date
-            } 
+            }
+
+        
 
             cell.appendChild(cellText);
             allcells.push(cell);
