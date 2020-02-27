@@ -96,32 +96,35 @@ function createTableBody(firstDay, daysInMonth, month,year) {
                 continue;
             }
 
-    
             // mark cells because of weekend
             if (j === 0 || j === 6) {
                 cell.classList.add("notpossible");
             }
-            // check if makes not sense to choose this date
+            // check if the date less than the currentday 
             if (date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                 cell.classList.add("notpossible");
             }
-            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+            // check if the cells in the past moths
+            if (month < today.getMonth()) {
                 cell.classList.add("notpossible");
             }
+            // check if the cells in the past years
+            if (year < today.getFullYear()) {
+                cell.classList.add("notpossible");
+            }
+            // check if the currentdate the today date
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("currentday"); // color today's date
+                cell.classList.add("notpossible");
+            }
+            // check is the current date 1 day after the today date
             if (date === today.getDate() + 1 && year === today.getFullYear() && month === today.getMonth()) {
                 cell.classList.add("notpossible");
             }
+            // check is the current date 2 days after the today date
             if (date === today.getDate() + 2 && year === today.getFullYear() && month === today.getMonth()) {
                 cell.classList.add("notpossible");
             }
-
-            // mark a cell if this the date is today
-            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                cell.classList.add("currentday"); // color today's date
-            }
-
-        
-
             cell.appendChild(cellText);
             allcells.push(cell);
             row.appendChild(cell);
@@ -129,18 +132,12 @@ function createTableBody(firstDay, daysInMonth, month,year) {
         }
         tablebody.appendChild(row); // appending each row into calendar body.
     }
-    console.log(allcells);
-    console.log(allcells.length);
+
 }
 
 function showCalendar (month, year) {
-    console.log("year => " + year);
-    console.log("month => " + month);
-    console.log("new Date(year, month) => " + new Date(year, month));
     let firstDay = new Date(year, month).getDay();
-    console.log("firstDay => " + firstDay);
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
-    console.log("daysInMonth => " + daysInMonth);
     createTablehead();
     createTableBody(firstDay, daysInMonth, month, year);
     monthAndYear.innerHTML = months[month] + " " + year;
@@ -190,7 +187,6 @@ function showCalendar (month, year) {
 
 /*
 last_choosen_cell = this;
-console.log(last_choosen_cell);
 last_choosen_cell.classList.toogle("selected");
 this.classList.add("selected");
 let selected_day = this.innerHTML;
