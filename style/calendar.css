@@ -34,7 +34,10 @@
 }
 #calender-section .card-body {
   padding: 0;
-  background-color: transparent;
+  background-color: grey;
+}
+#calender-section .card-body table {
+  margin-bottom: 0;
 }
 #calender-section .card-body #calendar thead {
   text-align: center;

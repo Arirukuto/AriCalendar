@@ -39,7 +39,12 @@
     //* ============= card body ============= */
     .card-body {
         padding: 0;
-        background-color: transparent;
+        background-color: grey;
+
+        table {
+            margin-bottom: 0;
+        }
+
         #calendar thead {
             text-align: center;
             background-color: $akzent2;
