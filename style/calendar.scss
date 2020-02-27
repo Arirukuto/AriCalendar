@@ -39,7 +39,7 @@
     //* ============= card body ============= */
     .card-body {
         padding: 0;
-        background-color: $color_primary;
+        background-color: transparent;
         #calendar thead {
             text-align: center;
             background-color: $akzent2;
@@ -49,10 +49,28 @@
             cursor: pointer;
             text-align: center;
             background-color: $color_secondary;
-            &:hover {background-color: $akzent1;color: white;}
-            &.empty {background-color: $empty_cell !important; cursor:not-allowed ;}
-            &.currentday {border: 2px solid $akzent1 !important;}
-            &.selected {background-color: $akzent1; color:white;}
+            color:black !important;
+            &:hover {
+                background-color: $akzent1 !important;
+                color: white; 
+            }
+            &.empty {
+                background-color: grey !important;
+                cursor:default;
+                 &:hover {background-color: grey !important; color:black;}
+            }
+            &.currentday {
+                background-color: $empty_cell;
+                border: 2px solid $akzent1;
+            }
+            &.selected {
+                background-color: $akzent1; color:white;
+            }
+            &.notpossible {
+                background-color: $empty_cell; 
+                cursor:default;
+                &:hover {background-color: $empty_cell !important; color:black;}
+            }
         }
     }
 
@@ -63,7 +81,7 @@
         flex-direction: column;
         text-align: center;
         justify-content: center;
-        span {font-size: 20px !important;}
+        span {font-size: 20px;}
         button {background-color: $akzent1; color:white;}
         #choosen_date {
             color: $akzent1 !important;

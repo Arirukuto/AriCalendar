@@ -34,7 +34,7 @@
 }
 #calender-section .card-body {
   padding: 0;
-  background-color: #f6e2e3;
+  background-color: transparent;
 }
 #calender-section .card-body #calendar thead {
   text-align: center;
@@ -44,21 +44,35 @@
   cursor: pointer;
   text-align: center;
   background-color: white;
+  color: black !important;
 }
 #calender-section .card-body .cell:hover {
-  background-color: #bd0074;
+  background-color: #bd0074 !important;
   color: white;
 }
 #calender-section .card-body .cell.empty {
-  background-color: #c7cdd3 !important;
-  cursor: not-allowed;
+  background-color: grey !important;
+  cursor: default;
+}
+#calender-section .card-body .cell.empty:hover {
+  background-color: grey !important;
+  color: black;
 }
 #calender-section .card-body .cell.currentday {
-  border: 2px solid #bd0074 !important;
+  background-color: #c7cdd3;
+  border: 2px solid #bd0074;
 }
 #calender-section .card-body .cell.selected {
   background-color: #bd0074;
   color: white;
+}
+#calender-section .card-body .cell.notpossible {
+  background-color: #c7cdd3;
+  cursor: default;
+}
+#calender-section .card-body .cell.notpossible:hover {
+  background-color: #c7cdd3 !important;
+  color: black;
 }
 #calender-section .card-footer {
   background-color: #f6e2e3;
@@ -68,7 +82,7 @@
   justify-content: center;
 }
 #calender-section .card-footer span {
-  font-size: 20px !important;
+  font-size: 20px;
 }
 #calender-section .card-footer button {
   background-color: #bd0074;
