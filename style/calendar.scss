@@ -9,6 +9,9 @@
     color: $font_color;
     button {border-radius: unset;}
 
+    #calendar-alert-success {display: none;}
+
+
     //* ============= card header ============= */
     .card-header {
         background-color: $color_primary;
@@ -39,7 +42,7 @@
     //* ============= card body ============= */
     .card-body {
         padding: 0;
-        background-color: grey;
+        background-color: white;
 
         table {
             margin-bottom: 0;

@@ -4,6 +4,9 @@
 #calender-section button {
   border-radius: unset;
 }
+#calender-section #calendar-alert-success {
+  display: none;
+}
 #calender-section .card-header {
   background-color: #f6e2e3;
   text-align: center;
@@ -34,7 +37,7 @@
 }
 #calender-section .card-body {
   padding: 0;
-  background-color: grey;
+  background-color: white;
 }
 #calender-section .card-body table {
   margin-bottom: 0;
