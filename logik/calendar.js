@@ -170,7 +170,7 @@ function showCalendar (month, year) {
            $("#valide-date").val($("#choosen_date").next().val());
            let calendar_alert_success_div = document.getElementById('calendar-alert-success');
            calendar_alert_success_div.style.display = "block";
-           calendar_alert_success_div.innerText = "Super Ihre Bestellung kommt pünktlich am " + selected_day + " " + months[currentMonth] + " " + currentYear; 
+           calendar_alert_success_div.innerText = "Super! Ihre Bestellung kommt pünktlich am " + selected_day + " " + months[currentMonth] + " " + currentYear; 
         }); 
 
 }
