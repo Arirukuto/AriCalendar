@@ -3,35 +3,13 @@ let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 let selectYear = document.getElementById("select-year");
 let selectMonth = document.getElementById("select-month");
-let monthAndYear = document.getElementById("monthAndYear");
+
 
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "October", "November", "Dezember"];
 //let weekdays = ["Su", "Mo", "Tu","We", "Th", "Fr", "Sa"];
 let weekdays = ["So", "Mo", "Di","Mi", "Do", "Fr", "Sa"];
 let allcells = [];
 
-let startyear = currentYear;
-let endyear = currentYear + 5;
-
- /* Bug detected
-    // filing data about month and in the page via DOM.
-    selectMonth.value = month;
-
-    // fill the year selectbox
-    for (var i = startyear; i <= endyear; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.innerHTML = i;
-    selectYear.appendChild(option);
-    }
-
-    // fill the mothh selectbox
-    for (var i = 0; i <= months.length - 1; i++) {
-    let option = document.createElement("option");
-    option.value = months[i];
-    option.innerHTML = months[i];
-    selectMonth.appendChild(option);
-*/
 
 showCalendar(currentMonth, currentYear);
 
@@ -53,7 +31,7 @@ function jump () {
     showCalendar(currentMonth, currentYear);
 }
 
-function createTablehead() {
+function createTableHead() {
     // create tablehead
     let tablehead = document.getElementById("calendar-head"); // head of the calender
     tablehead.innerHTML = "";
@@ -86,7 +64,7 @@ function createTableBody(firstDay, daysInMonth, month,year) {
             // datecounter bigger than count of days in moth => break out the loop
             if (date > daysInMonth) { break; }
 
-            // if the counter i equal 0 and the counter j is greater than the number of the firstday in m
+            // if i equal 0 and the counter j is greater than the number of the firstday in m
             if (i === 0 && j < firstDay) {
                 cell.classList.add("cell");
                 cell.classList.add("empty");
@@ -114,7 +92,7 @@ function createTableBody(firstDay, daysInMonth, month,year) {
             }
             // check if the currentdate the today date
             if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                cell.classList.add("currentday"); // color today's date
+                cell.classList.add("currentday"); 
                 cell.classList.add("notpossible");
             }
             // check is the current date 1 day after the today date
@@ -136,60 +114,64 @@ function createTableBody(firstDay, daysInMonth, month,year) {
 }
 
 function showCalendar (month, year) {
-    let firstDay = new Date(year, month).getDay();
+    // calculated the first day in month
+    let firstDay = new Date(year, month).getDay(); 
+    // calculated the count of days in the month
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
-    createTablehead();
-    createTableBody(firstDay, daysInMonth, month, year);
+
+    let monthAndYear = document.getElementById("monthAndYear");
     monthAndYear.innerHTML = months[month] + " " + year;
 
-    // event calls
+    createTableHead();
+    createTableBody(firstDay, daysInMonth, month, year);
+
+    
     let choosen_date_span = document.getElementById("choosen_date");
-    let choosen_cell = "";
-    $(document).ready(function () {
 
+        // Stores the number of clicks 
         let counter = 0;
+        let selected_day = "";
 
-        // calendar cell event
+        // Triggers the event when a cell is clicked on
         $(".cell").click(function () {
-            choosen_date_span.innerHTML = ""; // clear the displayed data
-            selected_day = this.innerHTML;
-            $("#choosen_date").next().val(selected_day + "." + currentMonth + "." + currentYear);
+            var choosen_cell = this;
 
-            if (selected_day < 10) { selected_day = "0" + selected_day; }
-
-            choosen_date_span.innerHTML = selected_day + " " + months[currentMonth] + " " + currentYear;
-
-            choosen_cell = this;
-            choosen_cell.classList.add("selected")
-            if (counter > 0) {
-                for (let index = 0; index < allcells.length; index++) {
-                    if (allcells[index].classList.contains("empty")) { continue; }
-                    allcells[index].classList.remove("selected");
+            if(choosen_cell.classList.contains('notpossible') === false) {
+                // add the class selected to the cell
+                choosen_cell.classList.add('selected')
+                // clear the displayed data
+                choosen_date_span.innerHTML = "";
+                // get the Text in the selected cell
+                selected_day = choosen_cell.innerHTML;
+                 // Select the input next to the the span with the id='choosen_date'
+                var hidden_input = $("#choosen_date").next();
+                hidden_input.val(selected_day + "." + currentMonth + "." + currentYear);
+                // if the value of the selected cell lower than 10 append  0 to the front
+                if (selected_day < 10) { selected_day = "0" + selected_day; }
+                // displays the value of the selected cell for customer feedback
+                let delivery_date = selected_day + " " + months[currentMonth] + " " + currentYear;
+                choosen_date_span.innerHTML = delivery_date;
+                // enables the confirm button 
+                $(".card-footer button").prop('disabled', false);
+                if (counter > 0) {
+                    for (let index = 0; index < allcells.length; index++) {
+                        if (allcells[index].classList.contains("empty")) { continue; }
+                        allcells[index].classList.remove("selected");
+                    }
+                    counter = 0;
+                } else {
+                    counter++;
                 }
-                counter = 0;
-            } else {
-                counter++;
             }
-            $(".card-footer button").prop('disabled', false);
         });
 
         // date confirm button event 
-        // Kein Datum gewählt 
         $(".card-footer button").click(function () {
-            $("#valide-date").val($("#choosen_date").next().val());
-        });
-
-    });
+           $("#valide-date").val($("#choosen_date").next().val());
+           let calendar_alert_success_div = document.getElementById('calendar-alert-success');
+           calendar_alert_success_div.style.display = "block";
+           calendar_alert_success_div.innerText = "Super Ihre Bestellung kommt pünktlich am " + selected_day + " " + months[currentMonth] + " " + currentYear; 
+        }); 
 
 }
-
-
-
-/*
-last_choosen_cell = this;
-last_choosen_cell.classList.toogle("selected");
-this.classList.add("selected");
-let selected_day = this.innerHTML;
-choosen_date_span.innerHTML = selected_day + "." + currentMonth + "." + currentYear;
-*/
 
