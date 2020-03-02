@@ -66,7 +66,7 @@
 }
 #calender-section .card-body .cell.currentday {
   background-color: #c7cdd3;
-  border: 2px solid #bd0074;
+  border: 3px solid #bd0074;
 }
 #calender-section .card-body .cell.selected {
   background-color: #bd0074;
