@@ -95,6 +95,14 @@
             color: $akzent1 !important;
         }
     }
+
+    #calendar-alert-success {
+        display: none;
+        padding-right: 50px;
+        padding-left: 50px;
+        background-color: #00fa3880;    
+    }
+
 }
 
 

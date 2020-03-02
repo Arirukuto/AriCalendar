@@ -67,7 +67,7 @@ function createTableBody(firstDay, daysInMonth, month,year) {
             // if i equal 0 and the counter j is greater than the number of the firstday in m
             if (i === 0 && j < firstDay) {
                 cell.classList.add("cell");
-                cell.classList.add("empty");
+                cell.classList.add("notpossible");
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
@@ -136,7 +136,7 @@ function showCalendar (month, year) {
         $(".cell").click(function () {
             var choosen_cell = this;
 
-            if(choosen_cell.classList.contains('notpossible') === false) {
+            if (choosen_cell.classList.contains('notpossible') === false) {
                 // add the class selected to the cell
                 choosen_cell.classList.add('selected')
                 // clear the displayed data

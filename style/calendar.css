@@ -97,5 +97,11 @@
 #calender-section .card-footer #choosen_date {
   color: #bd0074 !important;
 }
+#calender-section #calendar-alert-success {
+  display: none;
+  padding-right: 50px;
+  padding-left: 50px;
+  background-color: #00fa3880;
+}
 
 /*# sourceMappingURL=calendar.css.map */
