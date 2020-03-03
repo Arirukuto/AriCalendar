@@ -13,7 +13,7 @@ folgende Funktionalität beinhaltet das Widget:
 - Der Bestätigen-Button bleibt solange disabled, bis der User ein gültiges Feld ausgewählt hat. Button bleibt solange leicht ausgegraut. 
 - User kann Lieferdatum aktuelles Datum nicht auswählen
 - User kann kein Datum in der Vergangenheit auswählen
-- User kann nicht kein Datum an Samstagen und Sonntagen auswählen (lässt sich anpassen)
+- User kann kein Datum an Samstagen und Sonntagen auswählen (lässt sich anpassen)
 - User kann nur ein Lieferdatum auswählen, welches mindestens drei Tage nach dem aktuellen Systemzeit-Datum kommt
 - User bekommt nach klicken auf den Bestätigen-Button ein erneutes Feedback in form eines alerts unter dem Kalender
 
