@@ -1,4 +1,4 @@
-
+*AriCalendar*
 
 
 folgende Funktionalität beinhaltet das Widget:
