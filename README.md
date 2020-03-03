@@ -1,4 +1,4 @@
-**AriCalendar**
+<h1> AriCalendar </h1>
 
 
 folgende Funktionalität beinhaltet das Widget:
