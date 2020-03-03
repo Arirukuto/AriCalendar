@@ -1,7 +1,8 @@
 
-- Design lässt sich über das ändern der SASS/SCSS Variablen ganz einfach anpassen
+
 
 folgende Funktionalität beinhaltet das Widget:
+- Design lässt sich über das ändern der SASS/SCSS Variablen ganz einfach anpassen
 - Anzeigen der exakten Kalendertage
 - Vor und Zurück springen zwischen den Monaten
 - Anzeige von Wochenden
