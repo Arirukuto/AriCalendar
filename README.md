@@ -21,5 +21,4 @@ Folgendes fehlt noch oder ist verbuggt
 - Schaltjahre werden noch nicht berücksichtigt
 - Feiertage werden noch nicht berücksichtigt
 - Januar und Februar hat nur nicht mögliche auszuwählende Fehler in der Zukunft.
-- Twig Template
 
